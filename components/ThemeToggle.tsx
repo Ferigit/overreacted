@@ -1,7 +1,7 @@
-// components/ThemeToggle.js
-
 import { useState, useEffect } from "react";
 import styled from "@emotion/styled";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { getToggle, setActiveTheme } from "../redux/toggle";
 
 const ToggleButton = styled.button`
   --toggle-width: 70px;
@@ -48,7 +48,9 @@ const ToggleThumb = styled.span`
 `;
 
 const ThemeToggle = () => {
-  const [activeTheme, setActiveTheme] = useState("light");
+  const dispatch = useAppDispatch();
+  let activeTheme = useAppSelector(getToggle);
+  // const [activeTheme, setActiveTheme] = useState("light");
   const inactiveTheme = activeTheme === "light" ? "dark" : "light";
 
   useEffect(() => {
@@ -60,7 +62,7 @@ const ThemeToggle = () => {
       aria-label={`Change to ${inactiveTheme} mode`}
       title={`Change to ${inactiveTheme} mode`}
       type="button"
-      onClick={() => setActiveTheme(inactiveTheme)}
+      onClick={() => dispatch(setActiveTheme(inactiveTheme))}
     >
       <ToggleThumb activeTheme={activeTheme} />
       <span>🌙</span>

@@ -1,4 +1,3 @@
-
 import Layout from "../components/layout";
 import axios from "axios";
 
@@ -88,9 +87,9 @@ Home.getInitialProps = async (ctx: any) => {
 
 Home.getLayout = function getLayout(page: any) {
   return (
-    <Layout>
-      <div>{page}</div>
-    </Layout>
+      <Layout>
+        <div>{page}</div>
+      </Layout>
   );
 };
 
