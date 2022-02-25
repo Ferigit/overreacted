@@ -7,31 +7,29 @@ const Post: any = ({ post, error }: any) => {
   const { pid } = router.query;
 
   return (
-    <div
-      style={{
-        marginLeft: "auto",
-        marginRight: "auto",
-        maxWidth: "42rem",
-        padding: " 2.625rem 1.3125rem",
-      }}
-    >
+    <div className="post-content">
       <article>
         <header>
           <h1>{post.title}</h1>
-          <p
-            style={{
-              fontSize: "0.83255rem",
-              lineHeight: "1.75rem",
-              display: "block",
-              marginTop: " 1.75rem",
-              markerStart: "-1.4rem",
-            }}
-          >
-            July 7, 2021 • ☕️☕️☕️ 14 min read
-          </p>
+          <p className="post-body">July 7, 2021 • ☕️☕️☕️ 14 min read</p>
           <p>{post.body}</p>
         </header>
       </article>
+      <style jsx>{`
+        .post-content {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 42rem;
+          padding: 2.625rem 1.3125rem;
+        }
+        .post-body {
+          font-size: 0.83255rem;
+          line-height: 1.75rem;
+          display: block;
+          margin-top: 1.75rem;
+          marker-start: -1.4rem;
+        }
+      `}</style>
     </div>
   );
 };
