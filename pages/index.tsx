@@ -5,19 +5,11 @@ const Home: any = ({ posts, error }: any) => {
   return (
     <div>
       <aside>
-        <div
-          style={{
-            display: "flex",
-            marginBottom: "3.5rem",
-          }}
-        >
+        <div className="aside-container">
           <img
             src="/profile-pic-c715447ce38098828758e525a1128b87.jpg"
             alt="Dan Abramov"
             className="aside-image"
-            style={{
-           
-            }}
           />
           <p className="aside-content">
             <p className="aside-title">
@@ -56,6 +48,10 @@ const Home: any = ({ posts, error }: any) => {
         })}
       </main>
       <style jsx>{`
+      .aside-container{
+        display: flex;
+        margin-bottom: 3.5rem
+      }
         .post-card {
           font-size: 1.75rem;
           margib-bottom: 0.4375rem;

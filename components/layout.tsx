@@ -1,17 +1,17 @@
 import Navbar from "./Navbar";
 export default function Layout({ children }: any) {
   return (
-    <div
-      style={{
-        marginLeft: "auto",
-        marginRight: "auto",
-        maxWidth: "42rem",
-        padding: "1.725rem 1.3125rem",
-      }}
-    >
+    <div className="layout-content">
       <Navbar />
       <main>{children}</main>
-      {/* <Footer /> */}
+      <style jsx>{`
+        .layout-content {
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 42rem;
+          padding: 1.725rem 1.3125rem;
+        }
+      `}</style>
     </div>
   );
 }

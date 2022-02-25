@@ -2,37 +2,33 @@ import ThemeToggle from "./ThemeToggle";
 
 export default function ({ children }: any) {
   return (
-    <header
-      style={{
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-        marginBottom: "1.625rem",
-      }}
-    >
-      <h1
-        style={{
-          boxShadow: "none",
-          textDecoration: "none",
-          color: "rgb(34,34,34)",
-        }}
-      >
-        <a
-          aria-current="page"
-          style={{
-            boxShadow: "none",
-            textDecoration: "none",
-            color: "var(--color-text-secondary)",
-          }}
-          className=""
-          href="/"
-        >
+    <header className="app-header">
+      <h1 className="header-contanier">
+        <a aria-current="page" className="homepage-link" href="/">
           Overreacted
         </a>
       </h1>
       <div style={{ display: "inline-block" }}>
         <ThemeToggle />
       </div>
+      <style jsx>{`
+        .app-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 1.625rem;
+        }
+        .header-contanier {
+          box-shadow: none;
+          text-decoration: none;
+          color: rgb(34, 34, 34);
+        }
+        .homepage-link {
+          box-shadow: none;
+          text-decoration: none;
+          color: var(--color-text-secondary);
+        }
+      `}</style>
     </header>
   );
 }
