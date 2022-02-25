@@ -14,27 +14,14 @@ const Home: any = ({ posts, error }: any) => {
           <img
             src="/profile-pic-c715447ce38098828758e525a1128b87.jpg"
             alt="Dan Abramov"
+            className="aside-image"
             style={{
-              margin: "auto 0px",
-              marginRight: "0.875rem",
-              // marginBottom: 0,
-              width: "3.5rem",
-              height: "3.5rem",
-              borderRadius: "50%",
+           
             }}
           />
-          <p
-            style={{
-              maxWidth: "310px",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              alignContent: "flex-end",
-            }}
-          >
-            <p style={{ margin: 0, marginBottom: 15 }}>
-              {" "}
-              Personal blog by{" "}
+          <p className="aside-content">
+            <p className="aside-title">
+              Personal blog by
               <a
                 href="https://mobile.twitter.com/dan_abramov"
                 style={{ color: "rgb(209,47,104)" }}
@@ -43,7 +30,7 @@ const Home: any = ({ posts, error }: any) => {
               </a>
             </p>
 
-            <p style={{ margin: 0 }}>I explain with words and code.</p>
+            <p className="aside-subtitle">I explain with words and code.</p>
           </p>
         </div>
       </aside>
@@ -52,13 +39,9 @@ const Home: any = ({ posts, error }: any) => {
           return (
             <article>
               <header>
-                <h3 style={{ fontSize: "1.75rem", marginBottom: "0.4375rem" }}>
+                <h3 className="post-card">
                   <a
-                    style={{
-                      boxShadow: "none",
-                      color: "#d23669",
-                      fontWeight: 900,
-                    }}
+                    className="post-card-link"
                     rel="bookmark"
                     href={`/post/${post.id}`}
                   >
@@ -67,11 +50,45 @@ const Home: any = ({ posts, error }: any) => {
                 </h3>
                 <small>July 7, 2021 • ☕️☕️☕️ 14 min read</small>
               </header>
-              <p style={{ marginBottom: "38px" }}>{post.body}</p>
+              <p className="post-card-body">{post.body}</p>
             </article>
           );
         })}
       </main>
+      <style jsx>{`
+        .post-card {
+          font-size: 1.75rem;
+          margib-bottom: 0.4375rem;
+        }
+        .post-card-link {
+          box-shadow: none;
+          color: #d23669;
+          font-weight: 900;
+        }
+        .post-card-body {
+          margin-bottom: 38px;
+        }
+        .aside-subtitle {
+          margin: 0px;
+        }
+        .aside-title {
+          margin: 0, marginBottom: 15
+        }
+        .aside-content {
+          max-width: 310px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          alignContent: flex-end;
+        }
+        .aside-image{
+          margin: auto 0px;
+          margin-right: 0.875rem;
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 50%;
+        }
+      `}</style>
     </div>
   );
 };
@@ -87,9 +104,9 @@ Home.getInitialProps = async (ctx: any) => {
 
 Home.getLayout = function getLayout(page: any) {
   return (
-      <Layout>
-        <div>{page}</div>
-      </Layout>
+    <Layout>
+      <div>{page}</div>
+    </Layout>
   );
 };
 
